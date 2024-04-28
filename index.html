@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Contatos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main style="display: flex; justify-content: center; align-items: center;">
+        <div class="container">
+            <ul class="contatos">
+            </ul>
+        </div>
+        <div class="input-area">
+            <h2>Adicionar Contato:</h2>
+            <form action="get">
+                <div class="form-area">
+                    <label for="input-nome">Nome:</label>
+                    <input type="text" class="input-contato" id="input-nome" required>
+                    <label for="input-numero">Número:</label>
+                    <input type="tel" class="input-contato" id="input-numero" required maxlength="17" oninput="formatarNumero(this)">
+                    <label for="input-email">E-mail:</label>
+                    <input type="email" class="input-contato" id="input-email">
+                </div>
+                <div class="botao-area">
+                    <button class="botao-adicionar">Adicionar</button>
+                    <button class="botao-limpar">Limpar</button>
+                </div>
+            </form>
+        </div>
+        <button class="botao-add-contato">
+            <svg style="color: white;" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+        </button>
+    </main>
+
+</body>
+<script src="index.js" defer></script>
+</html>
