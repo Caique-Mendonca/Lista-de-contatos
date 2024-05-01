@@ -26,7 +26,12 @@ adicionarContato.addEventListener('click', (e)=>{
         console.log(inputNome);
         console.log(inputNumero);
         console.log(inputEmail);
-
+        if(inputNome && inputNumero && inputEmail){
+            document.querySelector("#erro").innerText = ""
+        }
+        if(!inputNome || !inputNumero || !inputEmail){
+            throw "Preencha todas as informações"
+        }
         contadorTarefa ++
 
         let listaDeContatos = document.querySelector(".contatos")
@@ -38,6 +43,10 @@ adicionarContato.addEventListener('click', (e)=>{
             <div style="display: flex; flex-direction: column; margin-left: 8px;">
                 <p class="nome-lista">${inputNome}</p>
                 <p class="numero-lista">${inputNumero}</p>
+            </div>
+            <div>
+                <i class='fa-solid fa-trash-can'></i>
+                <i class="fa-solid fa-pen"></i>
             </div>
         </li>`
 
@@ -60,7 +69,7 @@ adicionarContato.addEventListener('click', (e)=>{
     }
 })
 
-
+// Formatar o número de telefone
 function formatarNumero(input) {
     // Remove todos os caracteres não numéricos do número de telefone
     let numeroLimpo = ('' + input.value).replace(/\D/g, '');
@@ -83,4 +92,5 @@ function formatarNumero(input) {
 
 function mensagemErro(erro){
     console.error(erro)
+    document.querySelector("#erro").innerText = "Erro: "+erro
 }

@@ -4,27 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Contatos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <div class="container">
+            <div style="display: flex; justify-content: center;">
+                <h1>Lista de Contatos:</h1>
+            </div>
+            <h3>Contatos:</h3>
             <ul class="contatos">
             </ul>
         </div>
         <div class="input-area">
             <h2>Adicionar Contato:</h2>
+            <p id="erro"></p>
             <form action="">
                 <div class="form-area">
                     <label for="input-nome">Nome:</label>
-                    <input type="text" class="input-contato" id="input-nome">
+                    <input type="text" class="input-contato" id="input-nome" required>
                     <label for="input-numero">Número:</label>
-                    <input type="tel" class="input-contato" id="input-numero" maxlength="17" oninput="formatarNumero(this)">
+                    <input type="tel" class="input-contato" id="input-numero" maxlength="17" oninput="formatarNumero(this)" required>
                     <label for="input-email">E-mail:</label>
-                    <input type="email" class="input-contato" id="input-email">
+                    <input type="email" class="input-contato" id="input-email" required>
                 </div>
                 <div class="botao-area">
-                    <button class="botao-adicionar">Adicionar</button>
+                    <button type="submit" class="botao-adicionar">Adicionar</button>
                     <button type="reset" class="botao-limpar">Limpar</button>
                 </div>
             </form>

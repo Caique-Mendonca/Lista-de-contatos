@@ -25,12 +25,13 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
+
 .input-area{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 270px;
     box-shadow: 0px 3px 10px #464646;
     padding: 10px;
     border-radius: 10px;
@@ -38,7 +39,7 @@ body{
     position: fixed;
     top: 0;
     background-color: #fff;
-    transform: translateY(200px)
+    transform: translateY(10vh)
 }
 .input-area input{
     margin: 6px;
@@ -118,11 +119,15 @@ body{
     width: 2.6rem;
     border-radius: 50%;
 }
+#erro{
+    color: red;
+    font-size: 12px;
+}
 
 @-webkit-keyframes slide-top {
     0% {
-      -webkit-transform: translateY(200px);
-              transform: translateY(200px);
+      -webkit-transform: translateY(10vh);
+              transform: translateY(10vh);
     }
     100% {
       -webkit-transform: translateY(-210%);
@@ -131,8 +136,8 @@ body{
   }
 @keyframes slide-top {
     0% {
-      -webkit-transform: translateY(200px);
-              transform: translateY(200px);
+      -webkit-transform: translateY(10vh);
+              transform: translateY(10vh);
     }
     100% {
       -webkit-transform: translateY(-210%);
@@ -141,8 +146,8 @@ body{
   }
 @-webkit-keyframes slide-down {
     0% {
-      -webkit-transform: translateY(200px);
-              transform: translateY(200px);
+      -webkit-transform: translateY(10vh);
+              transform: translateY(10vh);
     }
     100% {
       -webkit-transform: translateY(-210%);
@@ -155,7 +160,7 @@ body{
                 transform: translateY(-210%);
     }
     100% {
-        -webkit-transform: translateY(200px);
-                transform: translateY(200px);
+        -webkit-transform: translateY(10vh);
+                transform: translateY(10vh);
     }
   }
