@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt=br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main style="display: flex; justify-content: center; align-items: center;">
+    <main style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
         <div class="container">
             <ul class="contatos">
             </ul>
         </div>
         <div class="input-area">
             <h2>Adicionar Contato:</h2>
-            <form action="get">
+            <form action="">
                 <div class="form-area">
                     <label for="input-nome">Nome:</label>
-                    <input type="text" class="input-contato" id="input-nome" required>
+                    <input type="text" class="input-contato" id="input-nome">
                     <label for="input-numero">Número:</label>
-                    <input type="tel" class="input-contato" id="input-numero" required maxlength="17" oninput="formatarNumero(this)">
+                    <input type="tel" class="input-contato" id="input-numero" maxlength="17" oninput="formatarNumero(this)">
                     <label for="input-email">E-mail:</label>
                     <input type="email" class="input-contato" id="input-email">
                 </div>
                 <div class="botao-area">
                     <button class="botao-adicionar">Adicionar</button>
-                    <button class="botao-limpar">Limpar</button>
+                    <button type="reset" class="botao-limpar">Limpar</button>
                 </div>
             </form>
         </div>
