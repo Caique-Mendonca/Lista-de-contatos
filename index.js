@@ -37,16 +37,18 @@ adicionarContato.addEventListener('click', (e)=>{
         let listaDeContatos = document.querySelector(".contatos")
         listaDeContatos.innerHTML += `
         <li class="contato" id='contato-${contadorTarefa}'>
-            <div>
-                <img src="Img/user_placeholder.png" alt="User imagem" class="imagem-usuario">
+            <div style="display:flex;">
+                <div>
+                    <img src="Img/user_placeholder.png" alt="User imagem" class="imagem-usuario">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-left: 8px;">
+                    <p class="nome-lista">${inputNome}</p>
+                    <p class="numero-lista">${inputNumero}</p>
+                </div>
             </div>
-            <div style="display: flex; flex-direction: column; margin-left: 8px;">
-                <p class="nome-lista">${inputNome}</p>
-                <p class="numero-lista">${inputNumero}</p>
-            </div>
             <div>
-                <i class='fa-solid fa-trash-can'></i>
-                <i class="fa-solid fa-pen"></i>
+                <i class='fa-solid fa-trash-can botao-excluir'></i>
+                <i class="fa-solid fa-pen botao-editar"></i>
             </div>
         </li>`
 

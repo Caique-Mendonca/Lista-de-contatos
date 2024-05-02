@@ -22,7 +22,7 @@ body{
     min-width: 290px;
     max-width: 679px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
