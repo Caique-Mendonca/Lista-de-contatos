@@ -1,16 +1,54 @@
-let contador = 0
-let contadorTarefa = 0
+let contador = 0 // contador para alterar a animação da inputArea
+let contadorTarefa = 0 // contador para contar os contatos
 let todosOsContatos = []
+
+window.onload = function(){
+    try {
+        let contatosArmazenados = localStorage.getItem('contatos')
+        if(contatosArmazenados){
+            todosOsContatos = JSON.parse(contatosArmazenados)
+            contadorTarefa = todosOsContatos.length
+            exibirContatos()
+        }
+        contador = 1
+    } catch (error) {
+        mensagemErro(error)
+    }
+} 
+
+function exibirContatos(){
+    let listaDeContatos = document.querySelector(".contatos")
+    listaDeContatos.innerHTML = ''
+    todosOsContatos.forEach((contato)=>{
+        listaDeContatos.innerHTML += `
+        <li class="contato" id='${contato.id}'>
+            <div style="display:flex;">
+                <div>
+                    <img src="Img/user_placeholder.png" alt="User imagem" class="imagem-usuario">
+                </div>
+                <div style="display: flex; flex-direction: column; margin-left: 8px;">
+                    <p class="nome-lista">${contato.nome}</p>
+                    <p class="numero-lista">${contato.numero}</p>
+                </div>
+            </div>
+            <div>
+                <i class='fa-solid fa-trash-can botao-excluir' onclick="deletarContato('${contato.id}')" style="margin: 5px"></i>
+                <i class="fa-solid fa-pen botao-editar" style="margin: 5px"></i>
+            </div>
+        </li>`
+    })
+}
+
 let botaoAdicionarContato = document.querySelector(".botao-add-contato")
 botaoAdicionarContato.addEventListener('click', ()=>{
     let inputArea = document.querySelector(".input-area")
     if (contador%2 == 0) {
-        inputArea.classList.remove("input-area-animation-top")
-        inputArea.classList.add("input-area-animation-down")
-    }
-    else if (contador%2 !== 0){
         inputArea.classList.remove("input-area-animation-down")
         inputArea.classList.add("input-area-animation-top")
+    }
+    else if (contador%2 !== 0){
+        inputArea.classList.remove("input-area-animation-top")
+        inputArea.classList.add("input-area-animation-down")
     }
     contador ++
 })
@@ -47,17 +85,16 @@ adicionarContato.addEventListener('click', (e)=>{
                 </div>
             </div>
             <div>
-                <i class='fa-solid fa-trash-can botao-excluir'></i>
-                <i class="fa-solid fa-pen botao-editar"></i>
+                <i class='fa-solid fa-trash-can botao-excluir' onclick="deletarContato('contato-${contadorTarefa}')" style="margin: 5px"></i>
+                <i class="fa-solid fa-pen botao-editar" style="margin: 5px"></i>
             </div>
         </li>`
 
         let novoContato ={
-            id: contadorTarefa,
             nome: inputNome,
             numero: inputNumero,
             email: inputEmail,
-            idHtml: `contato-${contadorTarefa}`
+            id: `contato-${contadorTarefa}`
         }
 
         todosOsContatos.push(novoContato)
@@ -65,11 +102,31 @@ adicionarContato.addEventListener('click', (e)=>{
         document.querySelector("#input-nome").value = ""
         document.querySelector("#input-numero").value = ""
         document.querySelector("#input-email").value = ""
-
+        
+        let inputArea = document.querySelector(".input-area")
+        inputArea.classList.add("input-area-animation-top")
+        inputArea.classList.remove("input-area-animation-down")
+        contador +=1 // impedir que eu clique 2 vezes pra aparecer o inputArea
+        // Armazenando os contatos no localStorage
+        localStorage.setItem('contatos', JSON.stringify(todosOsContatos))
     } catch (error) {
         mensagemErro(error)
     }
 })
+
+function deletarContato(id) {
+    try{
+        // Removendo o contato do html
+        let tarefaRemover = document.querySelector(`#${id}`)
+        tarefaRemover.remove()
+        // Removendo o contato do localStrorage
+        todosOsContatos = todosOsContatos.filter(contato => contato.id !== id)
+        localStorage.setItem('contatos', JSON.stringify(todosOsContatos))
+    }
+    catch(error){
+        mensagemErro(error)
+    }
+}
 
 // Formatar o número de telefone
 function formatarNumero(input) {
