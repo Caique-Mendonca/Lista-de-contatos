@@ -1,5 +1,4 @@
 let contador = 0 // contador para alterar a animação da inputArea
-let contadorTarefa = 0 // contador para contar os contatos
 let todosOsContatos = []
 
 window.onload = function(){
@@ -39,6 +38,10 @@ function exibirContatos(){
     })
 }
 
+function geradorDeIDUnico(){
+    return 'contato-'+Date.now() // Ele vai gerar um id baseado no numero de milisegundos, assim gerando sempre um id diferente e evitando o conflito de ids duplicados
+}
+
 let botaoAdicionarContato = document.querySelector(".botao-add-contato")
 botaoAdicionarContato.addEventListener('click', ()=>{
     let inputArea = document.querySelector(".input-area")
@@ -70,11 +73,10 @@ adicionarContato.addEventListener('click', (e)=>{
         if(!inputNome || !inputNumero || !inputEmail){
             throw "Preencha todas as informações"
         }
-        contadorTarefa ++
-
+        let novoID = geradorDeIDUnico()
         let listaDeContatos = document.querySelector(".contatos")
         listaDeContatos.innerHTML += `
-        <li class="contato" id='contato-${contadorTarefa}'>
+        <li class="contato" id='${novoID}'>
             <div style="display:flex;">
                 <div>
                     <img src="Img/user_placeholder.png" alt="User imagem" class="imagem-usuario">
@@ -85,7 +87,7 @@ adicionarContato.addEventListener('click', (e)=>{
                 </div>
             </div>
             <div>
-                <i class='fa-solid fa-trash-can botao-excluir' onclick="deletarContato('contato-${contadorTarefa}')" style="margin: 5px"></i>
+                <i class='fa-solid fa-trash-can botao-excluir' onclick="deletarContato('${novoID}')" style="margin: 5px"></i>
                 <i class="fa-solid fa-pen botao-editar" style="margin: 5px"></i>
             </div>
         </li>`
@@ -94,7 +96,7 @@ adicionarContato.addEventListener('click', (e)=>{
             nome: inputNome,
             numero: inputNumero,
             email: inputEmail,
-            id: `contato-${contadorTarefa}`
+            id: novoID
         }
 
         todosOsContatos.push(novoContato)

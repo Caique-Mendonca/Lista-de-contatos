@@ -102,12 +102,12 @@ body{
     background-color: rgb(8, 105, 8);
 }
 .input-area-animation-top{
-    -webkit-animation: slide-top 0.5s ease-out both;
-    animation: slide-top 0.5s ease-out both;
+    -webkit-animation: slide-top 0.5s ease-in-out both;
+    animation: slide-top 0.5s ease-in-out both;
 }
 .input-area-animation-down{
-    -webkit-animation: slide-down 0.5s ease-out both;
-    animation: slide-down 0.5s ease-out both;
+    -webkit-animation: slide-down 0.5s ease-in-out both;
+    animation: slide-down 0.5s ease-in-out both;
 }
 .nome-lista{
     font-weight: bold;
@@ -123,6 +123,15 @@ body{
 #erro{
     color: red;
     font-size: 12px;
+}
+.botao-excluir, .botao-editar{
+    transition: color 300ms ease;
+}
+.botao-excluir:hover{
+    color: red;
+}
+.botao-editar:hover{
+    color: rgb(5, 182, 252);
 }
 
 @-webkit-keyframes slide-top {
