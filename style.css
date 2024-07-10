@@ -64,10 +64,16 @@ body{
 }
 .input-area .icone-div{
     display: flex; 
-    justify-content: flex-end; 
+    justify-content: flex-end;
+    width: 100%;
 }
-.input-area i{
-    font-size: 14px;
+.input-area .fa-x{
+    font-size: 15px;
+    padding: 6px;
+    border-radius: 50%;
+}
+.input-area .fa-x:hover{
+    background-color: #7a7a7a;
 }
 .botao-area button{
     padding: 7px;

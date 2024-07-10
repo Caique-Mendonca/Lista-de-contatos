@@ -42,6 +42,14 @@ function geradorDeIDUnico(){
     return 'contato-'+Date.now() // Ele vai gerar um id baseado no numero de milisegundos, assim gerando sempre um id diferente e evitando o conflito de ids duplicados
 }
 
+let botaoTirarModal = document.querySelector('.input-area .fa-x')
+botaoTirarModal.addEventListener('click',()=>{
+    let inputArea = document.querySelector(".input-area")
+    inputArea.classList.remove("input-area-animation-down")
+    inputArea.classList.add("input-area-animation-top")
+    contador++
+})
+
 let botaoAdicionarContato = document.querySelector(".botao-add-contato")
 botaoAdicionarContato.addEventListener('click', ()=>{
     let inputArea = document.querySelector(".input-area")
