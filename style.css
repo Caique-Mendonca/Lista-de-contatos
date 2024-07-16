@@ -111,6 +111,18 @@ body{
     z-index: 200;
     transition: background-color 300ms ; 
 }
+.girado{
+    animation: girar-x 0.5s ease-in-out both;
+    -webkit-animation: girar-x 0.5s ease-in-out both;
+    background-color: rgb(197, 7, 7) !important;
+}
+.girado:hover{
+    background-color: rgb(161, 6, 6) !important;
+} 
+.girado-contrario{
+    animation: girar-x-contrario 0.5s ease-in-out both;
+    -webkit-animation: girar-x-contrario 0.5s ease-in-out both;
+}
 .botao-add-contato:hover{
     background-color: rgb(8, 105, 8);
 }
@@ -187,3 +199,24 @@ body{
                 transform: translateY(10vh);
     }
   }
+@keyframes girar-x{
+    0%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100%{
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes girar-x-contrario{
+    0%{
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    100%{
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+}

@@ -1,6 +1,7 @@
 let contador = 0 // contador para alterar a animação da inputArea
 let todosOsContatos = []
 
+
 window.onload = function(){
     try {
         let contatosArmazenados = localStorage.getItem('contatos')
@@ -163,3 +164,19 @@ function mensagemErro(erro){
     console.error(erro)
     document.querySelector("#erro").innerText = "Erro: "+erro
 }
+
+let contadorGirar = 0
+
+botaoX = document.querySelector('.botao-add-contato')
+botaoX.addEventListener('click', ()=>{
+    $botaoX = document.querySelector('.botao-add-contato')
+    if (contadorGirar%2 == 0){
+        $botaoX.classList.remove('girado-contrario')
+        $botaoX.classList.add('girado')
+    }
+    else if (contadorGirar%2 !== 0){
+        $botaoX.classList.remove('girado')
+        $botaoX.classList.add('girado-contrario')
+    }
+    contadorGirar ++
+})
