@@ -1,6 +1,6 @@
 let contador = 0 // contador para alterar a animação da inputArea
 let todosOsContatos = []
-
+let contadorGirar = 0
 
 window.onload = function(){
     try {
@@ -49,6 +49,7 @@ botaoTirarModal.addEventListener('click',()=>{
     inputArea.classList.remove("input-area-animation-down")
     inputArea.classList.add("input-area-animation-top")
     contador++
+    girarBotaoX()
 })
 
 let botaoAdicionarContato = document.querySelector(".botao-add-contato")
@@ -165,10 +166,10 @@ function mensagemErro(erro){
     document.querySelector("#erro").innerText = "Erro: "+erro
 }
 
-let contadorGirar = 0
-
 botaoX = document.querySelector('.botao-add-contato')
-botaoX.addEventListener('click', ()=>{
+botaoX.addEventListener('click', girarBotaoX)
+
+function girarBotaoX(){
     $botaoX = document.querySelector('.botao-add-contato')
     if (contadorGirar%2 == 0){
         $botaoX.classList.remove('girado-contrario')
@@ -179,4 +180,4 @@ botaoX.addEventListener('click', ()=>{
         $botaoX.classList.add('girado-contrario')
     }
     contadorGirar ++
-})
+}
