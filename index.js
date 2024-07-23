@@ -1,4 +1,4 @@
-let contador = 0 // contador para alterar a animação da inputArea
+let contador = 0 
 let todosOsContatos = []
 let contadorGirar = 0
 
@@ -40,7 +40,7 @@ function exibirContatos(){
 }
 
 function geradorDeIDUnico(){
-    return 'contato-'+Date.now() // Ele vai gerar um id baseado no numero de milisegundos, assim gerando sempre um id diferente e evitando o conflito de ids duplicados
+    return 'contato-'+Date.now() 
 }
 
 let botaoTirarModal = document.querySelector('.input-area .fa-x')
@@ -118,8 +118,8 @@ adicionarContato.addEventListener('click', (e)=>{
         let inputArea = document.querySelector(".input-area")
         inputArea.classList.add("input-area-animation-top")
         inputArea.classList.remove("input-area-animation-down")
-        contador +=1 // impedir que eu clique 2 vezes pra aparecer o inputArea
-        // Armazenando os contatos no localStorage
+        contador +=1 
+
         localStorage.setItem('contatos', JSON.stringify(todosOsContatos))
     } catch (error) {
         mensagemErro(error)
@@ -132,10 +132,8 @@ adicionarContato.addEventListener('click', (e)=>{
 
 function deletarContato(id) {
     try{
-        // Removendo o contato do html
         let tarefaRemover = document.querySelector(`#${id}`)
         tarefaRemover.remove()
-        // Removendo o contato do localStrorage
         todosOsContatos = todosOsContatos.filter(contato => contato.id !== id)
         localStorage.setItem('contatos', JSON.stringify(todosOsContatos))
     }
