@@ -118,16 +118,13 @@ adicionarContato.addEventListener('click', (e)=>{
         let inputArea = document.querySelector(".input-area")
         inputArea.classList.add("input-area-animation-top")
         inputArea.classList.remove("input-area-animation-down")
-        contador +=1 
-
+        contador ++ 
+        girarBotaoX()
+        
         localStorage.setItem('contatos', JSON.stringify(todosOsContatos))
     } catch (error) {
         mensagemErro(error)
     }
-    let inputArea = document.querySelector(".input-area")
-    inputArea.classList.remove("input-area-animation-down")
-    inputArea.classList.add("input-area-animation-top")
-    girarBotaoX()
 })
 
 function deletarContato(id) {
